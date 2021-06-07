@@ -115,9 +115,10 @@ int main()
 
 	
     while(1)
-    {
+    {   NVIC_CTRL_ADDR = 0xf;
         while(fps_flag) ;
         fps_flag = 0;
+        NVIC_CTRL_ADDR = 0;
         if(shoot_count < 30) shoot_count += 1; //射击计时
         if(ai_shoot_count < 60) ai_shoot_count += 1; //ai射击计时
 

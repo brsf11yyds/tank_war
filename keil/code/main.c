@@ -1,17 +1,20 @@
 #include <stdint.h>
 #include <stdio.h>
+#include "code_def.h"
 #include <math.h>
+extern uint16_t fps_flag;
+extern uint16_t fps_count;
 
-    typedef struct object
-    {
-        uint16_t axis_x;       //x坐标
-        uint16_t axis_y;       //y坐标
-        char attr;             //属性：1：墙  2：木箱  3：草  4：己方坦克 5：敌方坦克 6：子弹
-        char direct;           //方向：wasd
-        struct object *next;   //链表指针
-    
-    };                         
-    struct object *T,*H,*L1,*L2,*L1B,*L2B; //H头指针
+typedef struct object
+{
+    uint16_t axis_x;       //x坐标
+    uint16_t axis_y;       //y坐标
+    char attr;             //属性：1：墙  2：木箱  3：草  4：己方坦克 5：敌方坦克 6：子弹
+    char direct;           //方向：wasd
+    struct object *next;   //链表指针
+
+};                         
+struct object *T,*H,*L1,*L2,*L1B,*L2B; //H头指针
 	
 
 
@@ -107,10 +110,14 @@ int main()
     uint16_t ai_move_flag=0;     
     uint16_t score = 0;
 
+    uint16_t fps_count_game;
+
 
 	
     while(1)
     {
+        while(fps_flag) ;
+        fps_flag = 0;
         if(shoot_count < 30) shoot_count += 1; //射击计时
         if(ai_shoot_count < 60) ai_shoot_count += 1; //ai射击计时
 
@@ -398,7 +405,13 @@ int main()
             L1B = L1;
             L1=L1->next;
         }
-
+    //fps显示
+    fps_count_game += 1;
+    if(fps_counter == 30)
+    {
+        dispfps(fps_count_game);
+        fps_count_game = 0;
+    }
     }
     
 }

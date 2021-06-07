@@ -5,3 +5,6 @@
 
 //数码管输出帧率
 #define ledisp (*(volatile unsigned *)0x40000000)
+
+//读键盘
+#define ledisp (*(volatile unsigned *)0x40000100)

@@ -278,17 +278,17 @@ int main()
                         L1->axis_y += 1;
                         L1->direct = 's';
                     }
-                    elseif((L1->axis_x < 11*16) && (L1->axis_y == 11*16))
+                    else if((L1->axis_x < 11*16) && (L1->axis_y == 11*16))
                     {
                         L1->axis_x += 1;
                         L1->direct = 'd';
                     }
-                    elseif((L1->axis_x == 11*16) && (L1->axis_y >= 3*16))
+                    else if((L1->axis_x == 11*16) && (L1->axis_y >= 3*16))
                     {
                         L1->axis_y += -1;
                         L1->direct = 'w';
                     }
-                    elseif((L1->axis_x >= 3*16) && (L1->axis_y == 11*16))
+                    else if((L1->axis_x >= 3*16) && (L1->axis_y == 11*16))
                     {
                         L1->axis_x += -1;
                         L1->direct = 'a';
@@ -408,7 +408,7 @@ int main()
         }
     //fps显示
     fps_count_game += 1;
-    if(fps_counter == 30)
+    if(fps_count == 30)
     {
         dispfps(fps_count_game);
         fps_count_game = 0;

@@ -7,4 +7,4 @@
 #define ledisp (*(volatile unsigned *)0x40000000)
 
 //读键盘
-#define ledisp (*(volatile unsigned *)0x40000100)
+#define Keyboard (*(volatile unsigned *)0x40000100)

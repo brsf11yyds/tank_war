@@ -16,7 +16,7 @@ void fps_hanlder(void)
     }
 }
 
-void dispfps(uint16_t fps_count_game)
+void disp_fps(uint16_t fps_count_game)
 {
     ledisp = fps_count_game;
 }

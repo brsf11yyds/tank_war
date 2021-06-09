@@ -16,7 +16,38 @@ typedef struct object
 };                         
 struct object *T,*H,*L1,*L2,*L1B,*L2B; //H头指针
 	
-
+void CHOOSE_GAME_MODE()
+{
+    uint16_t i;
+    uint16_t mode = 0;      //0单人游戏  1 主机   2从机
+    uint32_t din;
+    uint32_t ans;
+    while(ans != 15)
+    {
+        din = Keyboard;     //读键盘
+        for (i = 0; i < 16; i++) 
+        {
+	        if ((din >> i) & 1) 
+            {
+	        	ans = i;
+	            break;
+	        }
+	    }
+        if(ans == 5 && mode < 2)    //w
+        {
+            mode += 1;
+        }
+        if(ans == 4 && mode > 0)    //s
+        {
+            mode += -1;
+        }
+    }
+    if(mode == 0)
+    {
+        GAME_MODE_0();
+    }
+    
+}
 
 void GAME_CREAT_TANK()
 {
@@ -39,8 +70,6 @@ void GAME_INI()
     H->direct = 'w';
     H->axis_x = 240-20-16;
     H->axis_y = 320-20-16;
-
-    GAME_CREAT_TANK();
 
     for(i=0;i<=12;i++)
     {
@@ -92,30 +121,32 @@ void GAME_INI()
 
 void GAME_OVER()
 {
-
+    char gg = 'g';
+    char gg_direct = 'w';
+    uint16_t gg_axis_x = 120-32;
+    uint16_t gg_axis_y = 60+130-32;
+    disp_image(gg,gg_axis_x,gg_axis_y,gg_direct);
 }
 
-int main()
+void GAME_MODE_0()
 {
-
-
-    GAME_INI();
     uint16_t i;
     uint16_t shoot_count;
     uint32_t din;
     uint32_t ans;
-    uint16_t crash_flag = 0;
     uint16_t move_flag = 0;
     uint16_t ai_shoot_count =0; 
     uint16_t ai_move_flag=0;     
     uint16_t score = 0;
-
     uint16_t fps_count_game;
 
-
+    GAME_INI();
+    GAME_CREAT_TANK();
 	
     while(1)
-    {   NVIC_CTRL_ADDR = 0xf;
+    {   
+        
+        NVIC_CTRL_ADDR = 0xf;
         while(fps_flag) ;
         fps_flag = 0;
         NVIC_CTRL_ADDR = 0;
@@ -137,8 +168,6 @@ int main()
         L1=H;
         while(L1->next != NULL)
         {
-            
-            crash_flag = 0;
             move_flag = 0;
             ai_move_flag =0;
             
@@ -172,7 +201,7 @@ int main()
 
 
                 //自机发射
-                if((ans == 7) && (shoot_count == 30))
+                if((ans == 15) && (shoot_count == 30))
                 {
                     shoot_count = 0;
                     T = (struct object*)malloc(sizeof(struct object));
@@ -234,7 +263,7 @@ int main()
                 {
                     if((L2->attr == '4') && (ai_shoot_count == 60))
                     {
-                        if((abs(L1->axis_x - L2->axis_x)<16) || (abs(L1->axis_y - L2->axis_y)<16))             //开火逻辑待修改
+                        if(L1->direct == 'd' && L2->axis_x < 20*2+16 && L2->axis_x > 20*2-16)
                         {
                             ai_shoot_count = 0;
                             T = (struct object*)malloc(sizeof(struct object));
@@ -243,26 +272,44 @@ int main()
                             T->direct = L1->direct;
                             T->next = H->next;
                             H->next = T;
-                            if(T->direct == 'd' && L1->axis_y > 16)
-                            {
-                                T->axis_x = L1->axis_x;
-                                T->axis_y = L1->axis_y - 16;
-                            }
-                            if(T->direct == 's' && L1->axis_x < 240-16)
-                            {
-                                T->axis_x = L1->axis_x + 16;
-                                T->axis_y = L1->axis_y;
-                            }
-                            if(T->direct == 'a' && L1->axis_y < 320-16)
-                            {
-                                T->axis_x = L1->axis_x;
-                                T->axis_y = L1->axis_y + 16;
-                            }
-                            if(T->direct == 'w' && L1->axis_x > 16)
-                            {
-                                T->axis_x = L1->axis_x - 16;
-                                T->axis_y = L1->axis_y; 
-                            }
+                            T->axis_x = L1->axis_x;
+                            T->axis_y = L1->axis_y - 16;
+                        }
+                        if(L1->direct == 's' && L2->axis_y < 60+20*2+16 && L2->axis_x > 60+20*2-16)
+                        {
+                            ai_shoot_count = 0;
+                            T = (struct object*)malloc(sizeof(struct object));
+                            T->next = NULL; 
+                            T->attr = '6';
+                            T->direct = L1->direct;
+                            T->next = H->next;
+                            H->next = T;
+                            T->axis_x = L1->axis_x + 16;
+                            T->axis_y = L1->axis_y;
+                        }
+                        if(L1->direct == 'a' && L2->axis_x < 240-20*2 && L2->axis_x > 240-20*2-16*2)
+                        {
+                            ai_shoot_count = 0;
+                            T = (struct object*)malloc(sizeof(struct object));
+                            T->next = NULL; 
+                            T->attr = '6';
+                            T->direct = L1->direct;
+                            T->next = H->next;
+                            H->next = T;
+                            T->axis_x = L1->axis_x;
+                            T->axis_y = L1->axis_y + 16;
+                        }
+                        if(L1->direct == 'w' && L2->axis_y < 320-20*2 && L2->axis_x > 320-20*2-16*2)
+                        {
+                            ai_shoot_count = 0;
+                            T = (struct object*)malloc(sizeof(struct object));
+                            T->next = NULL; 
+                            T->attr = '6';
+                            T->direct = L1->direct;
+                            T->next = H->next;
+                            H->next = T;
+                            T->axis_x = L1->axis_x - 16;
+                            T->axis_y = L1->axis_y; 
                         }
                     }
                     L2B = L2;
@@ -341,24 +388,28 @@ int main()
                         {
                             L1B->next = L1->next;
                             free(L1);
+                            L1 = L1B;
                             break;
                         }
                         if(L1->direct == 's' && L2->axis_x - L1->axis_x < 16) 
                         {
                             L1B->next = L1->next;
                             free(L1);
+                            L1 = L1B;
                             break;
                         }
                         if(L1->direct == 'a' && L1->axis_y - L2->axis_y < 20) 
                         {
                             L1B->next = L1->next;
                             free(L1);
+                            L1 = L1B;
                             break;
                         }
                         if(L1->direct = 'w' && L1->axis_x - L2->axis_x < 20) 
                         {
                             L1B->next = L1->next;
                             free(L1);
+                            L1 = L1B;
                             break;
                         }
                     }
@@ -370,32 +421,40 @@ int main()
                         {
                             L2B->next = L2->next;
                             free(L2);
+                            L2 = L2B;
                             L1B->next = L1->next;
                             free(L1);
+                            L1 = L1B;
                             break;
                         }
                         if(L1->direct == 's' && L2->axis_x - L1->axis_x < 16) 
                         {
                             L2B->next = L2->next;
                             free(L2);
+                            L2 = L2B;
                             L1B->next = L1->next;
                             free(L1);
+                            L1 = L1B;
                             break;
                         }
                         if(L1->direct == 'a' && L1->axis_y - L2->axis_y < 20) 
                         {
                             L2B->next = L2->next;
                             free(L2);
+                            L2 = L2B;
                             L1B->next = L1->next;
                             free(L1);
+                            L1 = L1B;
                             break;
                         }
                         if(L1->direct = 'w' && L1->axis_x - L2->axis_x < 20) 
                         {
                             L2B->next = L2->next;
                             free(L2);
+                            L2 = L2B;
                             L1B->next = L1->next;
                             free(L1);
+                            L1 = L1B;
                             break;
                         }
                     }        
@@ -408,8 +467,10 @@ int main()
                             score += 1;
                             L2B->next = L2->next;
                             free(L2);
+                            L2 = L2B;
                             L1B->next = L1->next;
                             free(L1);
+                            L1 = L1B;
                             break;
                         }
                         if(L1->direct == 's' && L2->axis_x - L1->axis_x < 16) 
@@ -417,26 +478,32 @@ int main()
                             score += 1;
                             L2B->next = L2->next;
                             free(L2);
+                            L2 = L2B;
                             L1B->next = L1->next;
                             free(L1);
+                            L1 = L1B;
                             break;
                         }
-                        if(L1->direct == 'a' && L1->axis_y - L2->axis_y < 20) 
+                        if(L1->direct == 'a' && L1->axis_y - L2->axis_y < 16) 
                          {
                             score += 1;
                             L2B->next = L2->next;
                             free(L2);
+                            L2 = L2B;
                             L1B->next = L1->next;
                             free(L1);
+                            L1 = L1B;
                             break;
                         }
-                        if(L1->direct = 'w' && L1->axis_x - L2->axis_x < 20) 
+                        if(L1->direct = 'w' && L1->axis_x - L2->axis_x < 16) 
                         {
                             score += 1;
                             L2B->next = L2->next;
                             free(L2);
+                            L2 = L2B;
                             L1B->next = L1->next;
                             free(L1);
+                            L1 = L1B;
                             break;
                         }
                     }       
@@ -452,11 +519,11 @@ int main()
                         {
                             GAME_OVER();
                         }
-                        if(L1->direct == 'a' && L1->axis_y - L2->axis_y < 20) 
+                        if(L1->direct == 'a' && L1->axis_y - L2->axis_y < 16) 
                          {
                             GAME_OVER();
                         }
-                        if(L1->direct = 'w' && L1->axis_x - L2->axis_x < 20) 
+                        if(L1->direct = 'w' && L1->axis_x - L2->axis_x < 16) 
                         {
                             GAME_OVER();
                         }
@@ -500,21 +567,31 @@ int main()
                 L2 = L2->next;
             }
 
-            
-
-            
-
-            
             L1B = L1;
             L1=L1->next;
         }
-    //fps显示
-    fps_count_game += 1;
-    if(fps_count == 30)
+        //fps显示
+        fps_count_game += 1;
+        if(fps_count == 30)
+        {
+            disp_fps(fps_count_game);
+            fps_count_game = 0;
+        }
+    }
+
+    //显示所有对象
+    L1=H;
+    while(L1->next != NULL)
     {
-        dispfps(fps_count_game);
-        fps_count_game = 0;
+        disp_image(L1->attr,L1->axis_x,L1->axis_y,L1->direct);
+        L1=L1->next;
     }
-    }
+    
+}
+int main()
+{
+
+    CHOOSE_GAME_MODE();
+    
     
 }

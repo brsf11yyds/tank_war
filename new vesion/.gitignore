@@ -1,0 +1,7 @@
+/keil/
+!/vivado/pin.xdc
+/vivado/
+/modelsim/
+/rtl/APB
+/rtl/RealTankSoCBusMtx/
+/rtl/cortexm0ds_logic.v

@@ -27,7 +27,7 @@ void CHOOSE_GAME_MODE()
         din = Keyboard;     //读键盘
         for (i = 0; i < 16; i++) 
         {
-	        if ((din >> i) & 1) 
+	        if ((din >> i) & 1)
             {
 	        	ans = i;
 	            break;

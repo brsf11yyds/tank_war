@@ -300,12 +300,413 @@ const uint16_t bird_blue[]={
                     0x0000, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
                     0x0000, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000
 };
+const char bgm[]={
+0x00,0x05,
+0x16,0x05,
+0x16,0x05,
+0x26,0x04,
+0x23,0x04,
+0x22,0x05,
+0x00,0x05,
+0x22,0x04,
+0x21,0x05,
+0x21,0x05,
+0x16,0x05,
+0x21,0x05,
+0x22,0x05,
+0x15,0x05,
+0x15,0x05,
+0x26,0x04,
+0x23,0x04,
+0x22,0x05,
+0x00,0x05,
+0x22,0x04,
+0x21,0x05,
+0x21,0x05,
+0x16,0x05,
+0x21,0x05,
+0x22,0x05,
+0x14,0x05,
+0x14,0x05,
+0x26,0x04,
+0x23,0x04,
+0x22,0x05,
+0x00,0x05,
+0x22,0x04,
+0x21,0x05,
+0x21,0x05,
+0x16,0x05,
+0x21,0x05,
+0x22,0x05,
+0x14,0x05,
+0x14,0x05,
+0x26,0x04,
+0x23,0x04,
+0x22,0x05,
+0x00,0x05,
+0x22,0x04,
+0x21,0x05,
+0x21,0x05,
+0x16,0x05,
+0x21,0x05,
+0x22,0x05,
+0x31,0x04,
+0x31,0x05,
+0x31,0x05,
+0x00,0x05,
+0x31,0x04,
+0x31,0x05,
+0x31,0x05,
+0x26,0x04,
+0x26,0x05,
+0x26,0x03,
+0x31,0x04,
+0x31,0x05,
+0x31,0x05,
+0x00,0x05,
+0x32,0x04,
+0x32,0x05,
+0x32,0x05,
+0x32,0x06,
+0x33,0x06,
+0x32,0x06,
+0x31,0x05,
+0x26,0x05,
+0x31,0x05,
+0x32,0x05,
+0x00,0x04,
+0x31,0x04,
+0x31,0x05,
+0x31,0x05,
+0x00,0x05,
+0x32,0x04,
+0x32,0x05,
+0x00,0x05,
+0x33,0x04,
+0x35,0x05,
+0x35,0x05,
+0x33,0x04,
+0x36,0x04,
+0x36,0x04,
+0x36,0x05,
+0x33,0x05,
+0x36,0x05,
+0x35,0x05,
+0x35,0x03,
+0x00,0x03,
+0x31,0x04,
+0x31,0x05,
+0x31,0x05,
+0x00,0x05,
+0x31,0x04,
+0x31,0x05,
+0x31,0x05,
+0x26,0x04,
+0x26,0x05,
+0x26,0x03,
+0x31,0x04,
+0x31,0x05,
+0x31,0x05,
+0x00,0x05,
+0x31,0x04,
+0x26,0x05,
+0x00,0x05,
+0x31,0x04,
+0x27,0x05,
+0x00,0x05,
+0x26,0x05,
+0x25,0x04,
+0x36,0x04,
+0x33,0x04,
+0x32,0x04,
+0x31,0x04,
+0x35,0x04,
+0x32,0x04,
+0x31,0x04,
+0x27,0x04,
+0x24,0x04,
+0x25,0x05,
+0x24,0x05,
+0x00,0x05,
+0x26,0x04,
+0x27,0x05,
+0x27,0x03,
+0x00,0x03,
+0x00,0x03,
+0x26,0x05,
+0x24,0x05,
+0x26,0x05,
+0x27,0x05,
+0x31,0x05,
+0x27,0x05,
+0x26,0x05,
+0x32,0x06,
+0x32,0x06,
+0x31,0x06,
+0x26,0x06,
+0x26,0x04,
+0x27,0x03,
+0x27,0x03,
+0x27,0x05,
+0x33,0x04,
+0x33,0x05,
+0x35,0x04,
+0x33,0x05,
+0x32,0x05,
+0x32,0x05,
+0x31,0x05,
+0x26,0x05,
+0x27,0x05,
+0x31,0x04,
+0x32,0x04,
+0x33,0x04,
+0x35,0x04,
+0x35,0x04,
+0x32,0x04,
+0x32,0x05,
+0x32,0x05,
+0x31,0x05,
+0x32,0x05,
+0x32,0x02,
+0x16,0x04,
+0x17,0x04,
+0x21,0x04,
+0x26,0x04,
+0x25,0x03,
+0x23,0x03,
+0x22,0x03,
+0x23,0x03,
+0x25,0x03,
+0x23,0x03,
+0x26,0x02,
+0x33,0x05,
+0x32,0x05,
+0x32,0x05,
+0x31,0x05,
+0x31,0x05,
+0x27,0x05,
+0x26,0x05,
+0x26,0x05,
+0x22,0x02,
+0x24,0x02,
+0x00,0x00,
+0x33,0x05,
+0x33,0x05,
+0x33,0x05,
+0x36,0x04,
+0x36,0x05,
+0x37,0x04,
+0x37,0x05,
+0x31,0x04,
+0x35,0x05,
+0x35,0x05,
+0x34,0x05,
+0x34,0x05,
+0x35,0x04,
+0x36,0x05,
+0x35,0x04,
+0x34,0x05,
+0x33,0x04,
+0x32,0x05,
+0x33,0x05,
+0x33,0x05,
+0x33,0x05,
+0x33,0x05,
+0x36,0x04,
+0x33,0x05,
+0x36,0x05,
+0x37,0x04,
+0x37,0x05,
+0x31,0x04,
+0x36,0x05,
+0x37,0x05,
+0x31,0x04,
+0x33,0x05,
+0x31,0x05,
+0x32,0x04,
+0x35,0x05,
+0x33,0x05,
+0x32,0x04,
+0x34,0x05,
+0x31,0x05,
+0x32,0x04,
+0x31,0x05,
+0x31,0x05,
+0x31,0x04,
+0x31,0x05,
+0x37,0x05,
+0x36,0x04,
+0x35,0x05,
+0x35,0x05,
+0x34,0x05,
+0x35,0x04,
+0x31,0x04,
+0x34,0x05,
+0x33,0x05,
+0x32,0x05,
+0x34,0x05,
+0x31,0x05,
+0x33,0x05,
+0x32,0x05,
+0x31,0x05,
+0x33,0x04,
+0x36,0x03,
+0x31,0x05,
+0x36,0x05,
+0x35,0x05,
+0x35,0x05,
+0x35,0x04,
+0x33,0x05,
+0x34,0x05,
+0x35,0x04,
+0x36,0x05,
+0x35,0x05,
+0x34,0x05,
+0x33,0x04,
+0x32,0x04,
+0x33,0x04,
+0x34,0x04,
+0x33,0x05,
+0x32,0x05,
+0x31,0x05,
+0x31,0x05,
+0x31,0x05,
+0x31,0x04,
+0x36,0x05,
+0x31,0x04,
+0x34,0x04,
+0x32,0x05,
+0x32,0x05,
+0x31,0x05,
+0x31,0x05,
+0x36,0x05,
+0x36,0x05,
+0x31,0x05,
+0x31,0x05,
+0x37,0x05,
+0x37,0x05,
+0x35,0x05,
+0x35,0x05,
+0x33,0x04,
+0x35,0x04,
+0x34,0x05,
+0x34,0x05,
+0x33,0x05,
+0x33,0x05,
+0x34,0x04,
+0x35,0x04,
+0x33,0x04,
+0x33,0x05,
+0x32,0x04,
+0x35,0x05,
+0x31,0x05,
+0x31,0x04,
+0x34,0x05,
+0x36,0x04,
+0x35,0x05,
+0x35,0x05,
+0x33,0x05,
+0x31,0x04,
+0x37,0x05,
+0x37,0x05,
+0x37,0x03,
+0x32,0x04,
+0x37,0x05,
+0x32,0x05,
+0x31,0x04,
+0x34,0x05,
+0x36,0x04,
+0x37,0x04,
+0x31,0x02,
+0x32,0x05,
+0x33,0x05,
+0x36,0x04,
+0x31,0x05,
+0x35,0x05,
+0x35,0x05,
+0x34,0x05,
+0x33,0x05,
+0x32,0x05,
+0x32,0x05,
+0x33,0x05,
+0x34,0x05,
+0x34,0x05,
+0x33,0x05,
+0x32,0x05,
+0x31,0x05,
+0x34,0x04,
+0x31,0x04,
+0x37,0x05,
+0x31,0x05,
+0x37,0x05,
+0x36,0x05,
+0x35,0x04,
+0x33,0x05,
+0x33,0x05,
+0x33,0x05,
+0x31,0x05,
+0x32,0x05,
+0x33,0x05,
+0x36,0x04,
+0x31,0x05,
+0x35,0x05,
+0x35,0x05,
+0x34,0x05,
+0x33,0x05,
+0x32,0x05,
+0x32,0x05,
+0x33,0x05,
+0x34,0x05,
+0x34,0x05,
+0x33,0x05,
+0x32,0x05,
+0x31,0x05,
+0x34,0x04,
+0x33,0x04,
+0x32,0x05,
+0x31,0x05,
+0x36,0x05,
+0x36,0x05,
+0x32,0x04,
+0x31,0x05,
+0x31,0x05,
+0x31,0x05,
+0x31,0x05,
+0x32,0x05,
+0x33,0x05,
+0x36,0x04,
+0x31,0x05,
+0x35,0x05,
+0x35,0x05,
+0x34,0x05,
+0x33,0x05,
+0x32,0x05,
+0x00,0x00,
+0x16,0x03,
+0x26,0x02,
+0x25,0x03,
+0x23,0x04,
+0x25,0x04,
+0x23,0x04,
+0x25,0x04,
+0x26,0x02,
+0x25,0x03,
+0x22,0x03,
+0x22,0x03,
+0x23,0x04,
+0x25,0x04,
+0x23,0x00,
+0x00,0x00};
+
+const char crash[]={0x13,0x05,0x11,0x05};
+
+
 int main()
 {
 	Delay(6000000);
 	LCD_init();
 	Delay(1000000);
-
+    PlayBGM(bgm,1);
     typedef struct object
 	{
     uint16_t axis_x;       
@@ -322,7 +723,7 @@ int main()
     uint16_t shoot_count;
     uint16_t ai_shoot_count;
     uint16_t bullet_move_flag;
-
+    uint16_t ai_remake_choose = 1;
     uint16_t ai_remake;
     uint16_t fire;
 
@@ -599,7 +1000,7 @@ int main()
             shoot_count += 1;   
         }
         //敌机射击计时
-        if(ai_shoot_count < 90)
+        if(ai_shoot_count < 130)
         {
             ai_shoot_count += 1;
         }
@@ -608,8 +1009,9 @@ int main()
         {
             ai_remake += -1;    
         }
-        if(ai_remake == 100)
+        if((ai_remake == 200) && (ai_remake_choose == 0))
         {
+            ai_remake_choose = 1;
             for ( j = 0; j < 150; j++)
             {
                 T = H + j*sizeof(struct object);
@@ -617,6 +1019,23 @@ int main()
                 {
                     T->axis_x = 20;
                     T->axis_y = 300-16;
+                    T->attr = '5';
+                    T->direct = 's';
+                    T = T + sizeof(struct object);
+                    break;
+                }
+            }
+        }
+        else if((ai_remake == 200) && (ai_remake_choose == 1))
+        {
+            ai_remake_choose = 0;
+            for ( j = 0; j < 150; j++)
+            {
+                T = H + j*sizeof(struct object);
+                if(T->attr == '0')
+                {
+                    T->axis_x = 20;
+                    T->axis_y = 80;
                     T->attr = '5';
                     T->direct = 's';
                     T = T + sizeof(struct object);
@@ -739,9 +1158,9 @@ int main()
                 for(j=0;j<150;j++)
                 {   
                     L2 = H + j*sizeof(struct object);
-                    if(L2->attr == '4')
+                    if(L2->attr == '4' || L2->attr == '9' || L2->attr == '8')
                     {
-                        if(ai_shoot_count > 80)
+                        if(ai_shoot_count > 120)
                         {
                             if((L1->direct == 'd') && (L1->axis_x - L2->axis_x < 16) && (L2->axis_x - L1->axis_x < 16)) 
                             {
@@ -831,24 +1250,24 @@ int main()
                     L1->direct = 'd';
                 }
                 //敌机移动right
-                if((L1->axis_y == 300-16) && (L1->axis_x < 120-16) && (ai_shoot_count > 30))
+                if((L1->axis_y == 80) && (L1->axis_x < 120-16) && (ai_shoot_count > 30))
                 {
                     L1->axis_x += 1;
                     L1->direct = 's';
                 }
-                else if((L1->axis_x == 120-16) && (L1->axis_y > 262) && (ai_shoot_count > 30))
+                else if((L1->axis_x == 120-16) && (L1->axis_y < 102) && (ai_shoot_count > 30))
                 {
-                    L1->axis_y += -1;
-                    L1->direct = 'd';
+                    L1->axis_y += 1;
+                    L1->direct = 'a';
                 }
-                else if((L1->axis_y == 262) && (L1->axis_x <204) && (ai_shoot_count > 30))
+                else if((L1->axis_y == 102) && (L1->axis_x <204) && (ai_shoot_count > 30))
                 {
                     L1->axis_x += 1;
                     L1->direct = 's';
                 }
-                else if((L1->axis_y == 262) && (L1->axis_x ==204))
+                else if((L1->axis_y == 102) && (L1->axis_x ==204))
                 {
-                    L1->direct = 'd';
+                    L1->direct = 'a';
                 }
             }
 
@@ -924,6 +1343,7 @@ int main()
                         if((L1->direct == 'd') && (L1->axis_y - L2->axis_y < 20) && (L1->axis_y - L2->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 8)) 
                         {
                             L1->attr = '0';
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x,L1->axis_y+2,8);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
                             break;
@@ -931,6 +1351,7 @@ int main()
                         else if((L1->direct == 's') && (L2->axis_x - L1->axis_x < 8) && (L2->axis_x - L1->axis_x > 0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 8)) 
                         {
                             L1->attr = '0';
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x-2,L1->axis_y,8);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
                             break;
@@ -938,6 +1359,7 @@ int main()
                         else if((L1->direct == 'a') && (L2->axis_y - L1->axis_y < 8) && (L2->axis_y - L1->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 8)) 
                         {
                             L1->attr = '0';
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x,L1->axis_y-2,8);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
                             break;
@@ -945,6 +1367,7 @@ int main()
                         else if((L1->direct == 'w') && (L1->axis_x - L2->axis_x < 20) && (L1->axis_x - L2->axis_x >0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 8)) 
                         {
                             L1->attr = '0';
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x+2,L1->axis_y,8);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
                             break;
@@ -958,6 +1381,7 @@ int main()
                         {
                             L1->attr = '0';
                             L2->attr = '9';
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x,L1->axis_y+2,8);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
                             break;
@@ -966,6 +1390,7 @@ int main()
                         {
                             L1->attr = '0';
                             L2->attr = '9';
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x-2,L1->axis_y,8);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
                             break;
@@ -974,6 +1399,7 @@ int main()
                         {
                             L1->attr = '0';
                             L2->attr = '9';
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x,L1->axis_y-2,8);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
                             break;
@@ -982,6 +1408,7 @@ int main()
                         {
                             L1->attr = '0';
                             L2->attr = '9';
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x+2,L1->axis_y,8);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
                             break;
@@ -994,6 +1421,7 @@ int main()
                         {
                             L1->attr = '0';
                             L2->attr = '0';
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x,L1->axis_y+2,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
@@ -1003,6 +1431,7 @@ int main()
                         {
                             L1->attr = '0';
                             L2->attr = '0';
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x-2,L1->axis_y,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
@@ -1012,6 +1441,7 @@ int main()
                         {
                             L1->attr = '0';
                             L2->attr = '0';
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x,L1->axis_y-2,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
@@ -1021,6 +1451,7 @@ int main()
                         {
                             L1->attr = '0';
                             L2->attr = '0';
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x+2,L1->axis_y,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
@@ -1034,6 +1465,7 @@ int main()
                         {
                             L1->attr = '0';
                             L2->attr = '0';
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x,L1->axis_y+2,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
@@ -1043,6 +1475,7 @@ int main()
                         {
                             L1->attr = '0';
                             L2->attr = '0';
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x-2,L1->axis_y,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
@@ -1052,6 +1485,7 @@ int main()
                         {
                             L1->attr = '0';
                             L2->attr = '0';
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x,L1->axis_y-2,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
@@ -1061,6 +1495,7 @@ int main()
                         {
                             L1->attr = '0';
                             L2->attr = '0';
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x+2,L1->axis_y,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
@@ -1076,6 +1511,7 @@ int main()
                             L1->attr = '0';
                             L2->attr = '0';
                             ai_remake = 500;
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x,L1->axis_y+2,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
@@ -1086,6 +1522,7 @@ int main()
                             L1->attr = '0';
                             L2->attr = '0';
                             ai_remake = 500;
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x-2,L1->axis_y,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
@@ -1096,6 +1533,7 @@ int main()
                             L1->attr = '0';
                             L2->attr = '0';
                             ai_remake = 500;
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x,L1->axis_y-2,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
@@ -1106,6 +1544,7 @@ int main()
                             L1->attr = '0';
                             L2->attr = '0';
                             ai_remake = 500;
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x+2,L1->axis_y,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
@@ -1120,7 +1559,7 @@ int main()
                         {
                             L1->attr = '0';
                             L2->attr = '0';
-                            ai_remake = 500;
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x,L1->axis_y+2,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
@@ -1130,7 +1569,7 @@ int main()
                         {
                             L1->attr = '0';
                             L2->attr = '0';
-                            ai_remake = 500;
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x-2,L1->axis_y,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
@@ -1140,7 +1579,7 @@ int main()
                         {
                             L1->attr = '0';
                             L2->attr = '0';
-                            ai_remake = 500;
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x,L1->axis_y-2,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
@@ -1150,7 +1589,7 @@ int main()
                         {
                             L1->attr = '0';
                             L2->attr = '0';
-                            ai_remake = 500;
+                            PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x+2,L1->axis_y,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);

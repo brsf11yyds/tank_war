@@ -179,7 +179,7 @@ const uint16_t tank02w[]={
                     0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000                  
 };
 
-const uint16_t tank02a[]={
+const uint16_t tank02s[]={
                     0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
                     0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
                     0x0000, 0x3a2d, 0x3a2d, 0x3a2d, 0x3a2d, 0x3a2d, 0x3a2d, 0x3a2d, 0x3a2d, 0x3a2d, 0x3a2d, 0x3a2d, 0x3a2d, 0x3a2d, 0x0000, 0x0000, 
@@ -197,7 +197,7 @@ const uint16_t tank02a[]={
                     0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
                     0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000
 };
-const uint16_t tank02s[]={
+const uint16_t tank02a[]={
                     0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
                     0x0000, 0x0000, 0x3a2d, 0x3a2d, 0x3a2d, 0x3a2d, 0x0000, 0x0000, 0x0000, 0x0000, 0x3a2d, 0x3a2d, 0x3a2d, 0x3a2d, 0x0000, 0x0000, 
                     0x0000, 0x0000, 0x3a2d, 0x8cf6, 0x8cf6, 0x8cf6, 0x3a2d, 0x3a2d, 0x3a2d, 0x3a2d, 0x8cf6, 0x8cf6, 0x8cf6, 0x3a2d, 0x0000, 0x0000, 
@@ -255,7 +255,51 @@ const uint16_t bulletw[]={
                     0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
                     0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000
 };
+const uint16_t bird_red[]={
+                    0x0000, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+                    0x0000, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+                    0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+                    0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xf808, 0xc67b, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+                    0x0000, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0xf808, 0xf808, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+                    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xf808, 0xc67b, 0xc67b, 0xf808, 0xc67b, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 
+                    0x0000, 0x0000, 0xff4c, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0xf808, 0xf808, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 
+                    0x0000, 0x0000, 0xff4c, 0xff4c, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0xf808, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0x0000, 0x0000, 
+                    0x0000, 0xc67b, 0xf808, 0xc67b, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 
+                    0x0000, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 
+                    0x0000, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 
+                    0x0000, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 
+                    0x0000, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0xf808, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0x0000, 0x0000, 
+                    0x0000, 0xc67b, 0xc67b, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0xf808, 0xf808, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 
+                    0x0000, 0xc67b, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xf808, 0xc67b, 0xc67b, 0xf808, 0xc67b, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 
+                    0x0000, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0xf808, 0xf808, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+                    0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xf808, 0xc67b, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+                    0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+                    0x0000, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+                    0x0000, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000
+};
 
+const uint16_t bird_blue[]={
+                    0x0000, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+                    0x0000, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+                    0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+                    0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0x04db, 0xc67b, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+                    0x0000, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0x04db, 0x04db, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+                    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0x04db, 0xc67b, 0xc67b, 0x04db, 0xc67b, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 
+                    0x0000, 0x0000, 0xff4c, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0x04db, 0x04db, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 
+                    0x0000, 0x0000, 0xff4c, 0xff4c, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0x04db, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0x0000, 0x0000, 
+                    0x0000, 0xc67b, 0x04db, 0xc67b, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 
+                    0x0000, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 
+                    0x0000, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 
+                    0x0000, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 
+                    0x0000, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0x04db, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0x0000, 0x0000, 
+                    0x0000, 0xc67b, 0xc67b, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0x04db, 0x04db, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 
+                    0x0000, 0xc67b, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0x04db, 0xc67b, 0xc67b, 0x04db, 0xc67b, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 
+                    0x0000, 0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0x04db, 0x04db, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+                    0x0000, 0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0x04db, 0xc67b, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+                    0x0000, 0x0000, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0xc67b, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+                    0x0000, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+                    0x0000, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000
+};
 int main()
 {
 	Delay(6000000);
@@ -266,7 +310,7 @@ int main()
 	{
     uint16_t axis_x;       
     uint16_t axis_y;       
-    char attr;                             //属性：1：墙  2：木箱  3：草  4：己方坦克 5：敌方坦克 6：子弹
+    char attr;                             //属性：1：墙  2：木箱  3：草  4：己方坦克01 5：敌方坦克02 6：子弹 7:敌方坦克03 8己方基地red 9己方基地blue
     char direct;           
 	}; 
     struct object *T,*H,*L1,*L2,*L1B,*L2B; //H头指针
@@ -276,7 +320,10 @@ int main()
     uint32_t ans;
     uint16_t move_flag;
     uint16_t shoot_count;
-    uint16_t move_count;
+    uint16_t ai_shoot_count;
+    uint16_t bullet_move_flag;
+
+    uint16_t ai_remake;
     uint16_t fire;
 
 
@@ -299,7 +346,7 @@ int main()
             Draw_pic(black,i*20,j*20,20);
         }
     }
-
+    //initial fence
 	for(i=0;i<=13;i++)
     {
         
@@ -338,62 +385,244 @@ int main()
         T = T + sizeof(struct object);
     }
 
- 
-    for(i=0;i<=8;i++)
-    {
-        
-        T->axis_x =40;
-        T->axis_y = 100+i*20;
-        T->attr = '2';
-        T->direct = 'w';
-        T = T + sizeof(struct object);
-    }
+    //initial wall
+    T->axis_x = 120;
+    T->axis_y = 80;
+    T->attr = '1';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
 
-    for(i=0;i<=8;i++)
-    {
-        
-        T->axis_x = 240-60;
-        T->axis_y = 100+i*20;
-        T->attr = '2';
-        T->direct = 'w';
-        T = T + sizeof(struct object);
-    }
-
-    for(i=3;i<=8;i++)
-    {
-        
-        T->axis_x = i*20;
-        T->axis_y = 100;
-        T->attr = '2';
-        T->direct = 'w';
-        T = T + sizeof(struct object);
-    }
-   
-    for(i=3;i<=8;i++)
-    {
-
-        T->axis_x = i*20;
-        T->axis_y = 320-60;
-        T->attr = '2';
-        T->direct = 'w';
-        T = T + sizeof(struct object);
-    }
     T->axis_x = 120;
     T->axis_y = 180;
-    T->attr = '4';
+    T->attr = '1';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+
+    T->axis_x = 120;
+    T->axis_y = 280;
+    T->attr = '1';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+
+    //initial box
+    T->axis_x = 180;
+    T->axis_y = 180;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 180;
+    T->axis_y = 160;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 200;
+    T->axis_y = 160;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 180;
+    T->axis_y = 200;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 200;
+    T->axis_y = 200;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 200;
+    T->axis_y = 200;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 200;
+    T->axis_y = 200;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+
+    
+    T->axis_x = 140;
+    T->axis_y = 120;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 160;
+    T->axis_y = 120;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 180;
+    T->axis_y = 120;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+
+    T->axis_x = 140;
+    T->axis_y = 240;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 160;
+    T->axis_y = 240;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 180;
+    T->axis_y = 240;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+
+    T->axis_x = 100;
+    T->axis_y = 160;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 120;
+    T->axis_y = 160;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 140;
+    T->axis_y = 160;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+
+    T->axis_x = 100;
+    T->axis_y = 200;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 120;
+    T->axis_y = 200;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 140;
+    T->axis_y = 200;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+
+    T->axis_x = 60;
+    T->axis_y = 120;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 80;
+    T->axis_y = 120;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 100;
+    T->axis_y = 120;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+
+    T->axis_x = 60;
+    T->axis_y = 240;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 80;
+    T->axis_y = 240;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 100;
+    T->axis_y = 240;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+
+    T->axis_x = 40;
+    T->axis_y = 160;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 60;
+    T->axis_y = 160;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 40;
+    T->axis_y = 180;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 60;
+    T->axis_y = 180;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 40;
+    T->axis_y = 200;
+    T->attr = '2';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    T->axis_x = 60;
+    T->axis_y = 200;
+    T->attr = '2';
     T->direct = 'w';
     T = T + sizeof(struct object);
     
+    //initial tank
+    T->axis_x = 220-16;
+    T->axis_y = 220;
+    T->attr = '4';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+
+    //initial ai tank
+    T->axis_x = 20;
+    T->axis_y = 300-16;
+    T->attr = '5';
+    T->direct = 's';
+    T = T + sizeof(struct object);
+
+    //initial bird
+    T->axis_x = 200;
+    T->axis_y = 180;
+    T->attr = '8';
+    T->direct = 'w';
+    T = T + sizeof(struct object);
+    //PLAY
     while(1){
         
-	    Delay(5000);
+	    Delay(1000);
+        //自机射击计时
         if(shoot_count < 30) 
         {
-            shoot_count += 1; //射击计时
+            shoot_count += 1;   
         }
-        if(move_count < 5) 
+        //敌机射击计时
+        if(ai_shoot_count < 90)
         {
-            move_count += 1; //射击计时
+            ai_shoot_count += 1;
+        }
+        //敌机重生计时
+        if(ai_remake > 0) 
+        {
+            ai_remake += -1;    
+        }
+        if(ai_remake == 100)
+        {
+            for ( j = 0; j < 150; j++)
+            {
+                T = H + j*sizeof(struct object);
+                if(T->attr == '0')
+                {
+                    T->axis_x = 20;
+                    T->axis_y = 300-16;
+                    T->attr = '5';
+                    T->direct = 's';
+                    T = T + sizeof(struct object);
+                    break;
+                }
+            }
         }
         
 	    din = KeyboardReg;
@@ -415,35 +644,32 @@ int main()
             L1 = H + i*sizeof(struct object);
             //自机移动
             if(L1->attr =='4')
-            {
-                if(move_count > 1)
+            { 
+                if(ans == 9) 
                 {
-                    move_count = 0;
-                    if(ans == 9) 
-                    {
-                        L1->axis_y += -1;
-                        L1->direct = 'd';
-                        move_flag = 1;  
-                    }
-                    else if(ans == 5) 
-                    {
-                        L1->axis_x += 1;
-                        L1->direct = 's';
-                        move_flag = 1;
-                    }
-                    else if(ans == 1) 
-                    {
-                        L1->axis_y += 1;
-                        L1->direct = 'a';
-                        move_flag = 1;
-                    }
-                    else if(ans == 6) 
-                    {
-                        L1->axis_x += -1;
-                        L1->direct = 'w';
-                        move_flag = 1;
-                    }
+                    L1->axis_y += -1;
+                    L1->direct = 'd';
+                    move_flag = 1; 
                 }
+                else if(ans == 5) 
+                {
+                    L1->axis_x += 1;
+                    L1->direct = 's';
+                    move_flag = 1;
+                }
+                else if(ans == 1) 
+                {
+                    L1->axis_y += 1;
+                    L1->direct = 'a';
+                    move_flag = 1;
+                }
+                else if(ans == 6) 
+                {
+                    L1->axis_x += -1;
+                    L1->direct = 'w';
+                    move_flag = 1;
+                }
+                
                 //自机发射子弹
                 if((fire == 1) && (shoot_count > 25))
                 {
@@ -481,25 +707,151 @@ int main()
                     }
                 }   
             }
+            //让子弹飞
             else if(L1->attr == '6')
             {
                 if(L1->direct == 'd') 
                 {
-                    L1->axis_y += -1;
+                    L1->axis_y += -2;
+                    bullet_move_flag = 1;
                 }
                 else if(L1->direct == 's') 
                 {
-                    L1->axis_x += 1;
+                    L1->axis_x += 2;
+                    bullet_move_flag = 1;
                 }
                 else if(L1->direct == 'a') 
                 {
-                    L1->axis_y += 1;
+                    L1->axis_y += 2;
+                    bullet_move_flag = 1;
                 }
                 else if(L1->direct = 'w') 
                 {
-                    L1->axis_x += -1;
+                    L1->axis_x += -2;
+                    bullet_move_flag = 1;
                 }
             }
+
+            //敌机AI
+            else if(L1->attr == '5')
+            {
+                //敌机开火
+                for(j=0;j<150;j++)
+                {   
+                    L2 = H + j*sizeof(struct object);
+                    if(L2->attr == '4')
+                    {
+                        if(ai_shoot_count > 80)
+                        {
+                            if((L1->direct == 'd') && (L1->axis_x - L2->axis_x < 16) && (L2->axis_x - L1->axis_x < 16)) 
+                            {
+                                ai_shoot_count = 0;
+                                for ( j = 0; j < 150; j++)
+                                {
+                                    T = H + j*sizeof(struct object);
+                                    if(T->attr == '0')
+                                    {
+                                        T->attr = '6';
+                                        T->direct = L1->direct;
+                                        T->axis_x = L1->axis_x + 4;
+                                        T->axis_y = L1->axis_y - 8;
+                                        break;
+                                    }
+                                }
+                            }
+                            else if((L1->direct == 's') &&(L1->axis_y - L2->axis_y < 16) && (L2->axis_y - L1->axis_y < 16)) 
+                            {
+                                ai_shoot_count = 0;
+                                for ( j = 0; j < 150; j++)
+                                {
+                                    T = H + j*sizeof(struct object);
+                                    if(T->attr == '0')
+                                    {
+                                        T->attr = '6';
+                                        T->direct = L1->direct;
+                                        T->axis_x = L1->axis_x + 16;
+                                        T->axis_y = L1->axis_y + 4;
+                                        break;
+                                    }
+                                }
+                            }
+                            else if((L1->direct == 'a') && (L1->axis_x - L2->axis_x < 16) && (L2->axis_x - L1->axis_x < 16)) 
+                            {
+                                ai_shoot_count = 0;
+                                for ( j = 0; j < 150; j++)
+                                {
+                                    T = H + j*sizeof(struct object);
+                                    if(T->attr == '0')
+                                    {
+                                        T->attr = '6';
+                                        T->direct = L1->direct;
+                                        T->axis_x = L1->axis_x + 4;
+                                        T->axis_y = L1->axis_y + 16;
+                                        break;
+                                    }
+                                }
+                            }
+                            else if((L1->direct == 'w') && (L1->axis_y - L2->axis_y < 16) && (L2->axis_y - L1->axis_y < 16)) 
+                            {
+                                ai_shoot_count = 0;
+                                for ( j = 0; j < 150; j++)
+                                {
+                                    T = H + j*sizeof(struct object);
+                                    if(T->attr == '0')
+                                    {
+                                        T->attr = '6';
+                                        T->direct = L1->direct;
+                                        T->axis_x = L1->axis_x - 8;
+                                        T->axis_y = L1->axis_y + 4; 
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                //敌机移动left
+                if((L1->axis_y == 300-16) && (L1->axis_x < 120-16) && (ai_shoot_count > 30))
+                {
+                    L1->axis_x += 1;
+                    L1->direct = 's';
+                }
+                else if((L1->axis_x == 120-16) && (L1->axis_y > 262) && (ai_shoot_count > 30))
+                {
+                    L1->axis_y += -1;
+                    L1->direct = 'd';
+                }
+                else if((L1->axis_y == 262) && (L1->axis_x <204) && (ai_shoot_count > 30))
+                {
+                    L1->axis_x += 1;
+                    L1->direct = 's';
+                }
+                else if((L1->axis_y == 262) && (L1->axis_x ==204))
+                {
+                    L1->direct = 'd';
+                }
+                //敌机移动right
+                if((L1->axis_y == 300-16) && (L1->axis_x < 120-16) && (ai_shoot_count > 30))
+                {
+                    L1->axis_x += 1;
+                    L1->direct = 's';
+                }
+                else if((L1->axis_x == 120-16) && (L1->axis_y > 262) && (ai_shoot_count > 30))
+                {
+                    L1->axis_y += -1;
+                    L1->direct = 'd';
+                }
+                else if((L1->axis_y == 262) && (L1->axis_x <204) && (ai_shoot_count > 30))
+                {
+                    L1->axis_x += 1;
+                    L1->direct = 's';
+                }
+                else if((L1->axis_y == 262) && (L1->axis_x ==204))
+                {
+                    L1->direct = 'd';
+                }
+            }
+
         }
         
         
@@ -539,6 +891,30 @@ int main()
                     }    
                 }
 
+                //敌机碰撞
+                if(L1->attr == '5')
+                {
+                    if(L2->attr == '1'|| L2->attr == '2' || L2->attr == '5' || L2->attr == '4')
+                    {
+                        if((L1->direct == 'd') && (L1->axis_y - L2->axis_y < 20) && (L1->axis_y - L2->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 16)) 
+                        {
+                            L1->axis_y += 1;
+                        }
+                        else if((L1->direct == 's') && (L2->axis_x - L1->axis_x < 16) && (L2->axis_x - L1->axis_x > 0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 16)) 
+                        {
+                            L1->axis_x += -1;
+                        }
+                        else if((L1->direct == 'a') && (L2->axis_y - L1->axis_y < 16) && (L2->axis_y - L1->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 16)) 
+                        {
+                            L1->axis_y += -1;
+                        }
+                        else if((L1->direct == 'w') && (L1->axis_x - L2->axis_x < 20) && (L1->axis_x - L2->axis_x >0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 16)) 
+                        {
+                            L1->axis_x += 1;
+                        }
+                    }    
+                }
+
                 //子弹碰撞
                 if(L1->attr == '6')
                 {
@@ -548,29 +924,109 @@ int main()
                         if((L1->direct == 'd') && (L1->axis_y - L2->axis_y < 20) && (L1->axis_y - L2->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 8)) 
                         {
                             L1->attr = '0';
+                            Draw_pic(black,L1->axis_x,L1->axis_y+2,8);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
                             break;
                         }
                         else if((L1->direct == 's') && (L2->axis_x - L1->axis_x < 8) && (L2->axis_x - L1->axis_x > 0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 8)) 
                         {
                             L1->attr = '0';
+                            Draw_pic(black,L1->axis_x-2,L1->axis_y,8);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
                             break;
                         }
                         else if((L1->direct == 'a') && (L2->axis_y - L1->axis_y < 8) && (L2->axis_y - L1->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 8)) 
                         {
                             L1->attr = '0';
+                            Draw_pic(black,L1->axis_x,L1->axis_y-2,8);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
                             break;
                         }
                         else if((L1->direct == 'w') && (L1->axis_x - L2->axis_x < 20) && (L1->axis_x - L2->axis_x >0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 8)) 
                         {
                             L1->attr = '0';
+                            Draw_pic(black,L1->axis_x+2,L1->axis_y,8);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
                             break;
                         }
                     }
-
+                    
+                    //击中基地red
+                    if(L2->attr == '8')
+                    {
+                        if((L1->direct == 'd') && (L1->axis_y - L2->axis_y < 20) && (L1->axis_y - L2->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 8)) 
+                        {
+                            L1->attr = '0';
+                            L2->attr = '9';
+                            Draw_pic(black,L1->axis_x,L1->axis_y+2,8);
+                            Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            break;
+                        }
+                        else if((L1->direct == 's') && (L2->axis_x - L1->axis_x < 8) && (L2->axis_x - L1->axis_x > 0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 8)) 
+                        {
+                            L1->attr = '0';
+                            L2->attr = '9';
+                            Draw_pic(black,L1->axis_x-2,L1->axis_y,8);
+                            Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            break;
+                        }
+                        else if((L1->direct == 'a') && (L2->axis_y - L1->axis_y < 8) && (L2->axis_y - L1->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 8)) 
+                        {
+                            L1->attr = '0';
+                            L2->attr = '9';
+                            Draw_pic(black,L1->axis_x,L1->axis_y-2,8);
+                            Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            break;
+                        }
+                        else if((L1->direct == 'w') && (L1->axis_x - L2->axis_x < 20) && (L1->axis_x - L2->axis_x >0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 8)) 
+                        {
+                            L1->attr = '0';
+                            L2->attr = '9';
+                            Draw_pic(black,L1->axis_x+2,L1->axis_y,8);
+                            Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            break;
+                        }
+                    }
+                    //集中基地blue
+                    if(L2->attr == '9')
+                    {
+                        if((L1->direct == 'd') && (L1->axis_y - L2->axis_y < 20) && (L1->axis_y - L2->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 8)) 
+                        {
+                            L1->attr = '0';
+                            L2->attr = '0';
+                            Draw_pic(black,L1->axis_x,L1->axis_y+2,8);
+                            Draw_pic(black,L2->axis_x,L2->axis_y,20);
+                            Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            break;
+                        }
+                        else if((L1->direct == 's') && (L2->axis_x - L1->axis_x < 8) && (L2->axis_x - L1->axis_x > 0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 8)) 
+                        {
+                            L1->attr = '0';
+                            L2->attr = '0';
+                            Draw_pic(black,L1->axis_x-2,L1->axis_y,8);
+                            Draw_pic(black,L2->axis_x,L2->axis_y,20);
+                            Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            break;
+                        }
+                        else if((L1->direct == 'a') && (L2->axis_y - L1->axis_y < 8) && (L2->axis_y - L1->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 8)) 
+                        {
+                            L1->attr = '0';
+                            L2->attr = '0';
+                            Draw_pic(black,L1->axis_x,L1->axis_y-2,8);
+                            Draw_pic(black,L2->axis_x,L2->axis_y,20);
+                            Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            break;
+                        }
+                        else if((L1->direct == 'w') && (L1->axis_x - L2->axis_x < 20) && (L1->axis_x - L2->axis_x >0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 8)) 
+                        {
+                            L1->attr = '0';
+                            L2->attr = '0';
+                            Draw_pic(black,L1->axis_x+2,L1->axis_y,8);
+                            Draw_pic(black,L2->axis_x,L2->axis_y,20);
+                            Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            break;
+                        }
+                    }
                     //击中木箱
                     if(L2->attr == '2')
                     {
@@ -578,6 +1034,7 @@ int main()
                         {
                             L1->attr = '0';
                             L2->attr = '0';
+                            Draw_pic(black,L1->axis_x,L1->axis_y+2,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
                             break;
@@ -586,6 +1043,7 @@ int main()
                         {
                             L1->attr = '0';
                             L2->attr = '0';
+                            Draw_pic(black,L1->axis_x-2,L1->axis_y,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
                             break;
@@ -594,6 +1052,7 @@ int main()
                         {
                             L1->attr = '0';
                             L2->attr = '0';
+                            Draw_pic(black,L1->axis_x,L1->axis_y-2,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
                             break;
@@ -602,6 +1061,97 @@ int main()
                         {
                             L1->attr = '0';
                             L2->attr = '0';
+                            Draw_pic(black,L1->axis_x+2,L1->axis_y,8);
+                            Draw_pic(black,L2->axis_x,L2->axis_y,20);
+                            Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            break;
+                        }
+                    }
+
+                    //击中敌机
+                    if(L2->attr == '5')
+                    {
+                        if((L1->direct == 'd') && (L1->axis_y - L2->axis_y < 20) && (L1->axis_y - L2->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 8)) 
+                        {
+                            L1->attr = '0';
+                            L2->attr = '0';
+                            ai_remake = 500;
+                            Draw_pic(black,L1->axis_x,L1->axis_y+2,8);
+                            Draw_pic(black,L2->axis_x,L2->axis_y,20);
+                            Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            break;
+                        }
+                        else if((L1->direct == 's') && (L2->axis_x - L1->axis_x < 8) && (L2->axis_x - L1->axis_x > 0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 8)) 
+                        {
+                            L1->attr = '0';
+                            L2->attr = '0';
+                            ai_remake = 500;
+                            Draw_pic(black,L1->axis_x-2,L1->axis_y,8);
+                            Draw_pic(black,L2->axis_x,L2->axis_y,20);
+                            Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            break;
+                        }
+                        else if((L1->direct == 'a') && (L2->axis_y - L1->axis_y < 8) && (L2->axis_y - L1->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 8)) 
+                        {
+                            L1->attr = '0';
+                            L2->attr = '0';
+                            ai_remake = 500;
+                            Draw_pic(black,L1->axis_x,L1->axis_y-2,8);
+                            Draw_pic(black,L2->axis_x,L2->axis_y,20);
+                            Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            break;
+                        }
+                        else if((L1->direct == 'w') && (L1->axis_x - L2->axis_x < 20) && (L1->axis_x - L2->axis_x >0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 8)) 
+                        {
+                            L1->attr = '0';
+                            L2->attr = '0';
+                            ai_remake = 500;
+                            Draw_pic(black,L1->axis_x+2,L1->axis_y,8);
+                            Draw_pic(black,L2->axis_x,L2->axis_y,20);
+                            Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            break;
+                        }
+                    }
+
+                    //击中自机
+                    if(L2->attr == '4')
+                    {
+                        if((L1->direct == 'd') && (L1->axis_y - L2->axis_y < 20) && (L1->axis_y - L2->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 8)) 
+                        {
+                            L1->attr = '0';
+                            L2->attr = '0';
+                            ai_remake = 500;
+                            Draw_pic(black,L1->axis_x,L1->axis_y+2,8);
+                            Draw_pic(black,L2->axis_x,L2->axis_y,20);
+                            Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            break;
+                        }
+                        else if((L1->direct == 's') && (L2->axis_x - L1->axis_x < 8) && (L2->axis_x - L1->axis_x > 0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 8)) 
+                        {
+                            L1->attr = '0';
+                            L2->attr = '0';
+                            ai_remake = 500;
+                            Draw_pic(black,L1->axis_x-2,L1->axis_y,8);
+                            Draw_pic(black,L2->axis_x,L2->axis_y,20);
+                            Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            break;
+                        }
+                        else if((L1->direct == 'a') && (L2->axis_y - L1->axis_y < 8) && (L2->axis_y - L1->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 8)) 
+                        {
+                            L1->attr = '0';
+                            L2->attr = '0';
+                            ai_remake = 500;
+                            Draw_pic(black,L1->axis_x,L1->axis_y-2,8);
+                            Draw_pic(black,L2->axis_x,L2->axis_y,20);
+                            Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            break;
+                        }
+                        else if((L1->direct == 'w') && (L1->axis_x - L2->axis_x < 20) && (L1->axis_x - L2->axis_x >0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 8)) 
+                        {
+                            L1->attr = '0';
+                            L2->attr = '0';
+                            ai_remake = 500;
+                            Draw_pic(black,L1->axis_x+2,L1->axis_y,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
                             break;
@@ -624,6 +1174,14 @@ int main()
             {
                 Draw_pic(box,L1->axis_x,L1->axis_y,20);
             }
+            else if (L1->attr =='8')
+            {
+                Draw_pic(bird_red,L1->axis_x,L1->axis_y,20);
+            }
+            else if (L1->attr =='9')
+            {
+                Draw_pic(bird_blue,L1->axis_x,L1->axis_y,20);
+            }
             else if (L1->attr =='4')
             {
                 if(L1->direct == 'w') Draw_pic(tank01w,L1->axis_x,L1->axis_y,16);
@@ -640,10 +1198,27 @@ int main()
             }
             else if (L1->attr =='6')
             {
-                if(L1->direct == 'w') Draw_pic(bulletw,L1->axis_x,L1->axis_y,8);
-                else if(L1->direct == 'a') Draw_pic(bulleta,L1->axis_x,L1->axis_y,8);
-                else if(L1->direct == 's') Draw_pic(bullets,L1->axis_x,L1->axis_y,8);
-                else if(L1->direct == 'd') Draw_pic(bulletd,L1->axis_x,L1->axis_y,8);
+                bullet_move_flag = 0;
+                if(L1->direct == 'w') 
+                {
+                    Draw_pic(black,L1->axis_x+2,L1->axis_y,8);
+                    Draw_pic(bulletw,L1->axis_x,L1->axis_y,8);
+                }
+                else if(L1->direct == 'a')
+                {
+                    Draw_pic(black,L1->axis_x,L1->axis_y-2,8);
+                    Draw_pic(bulleta,L1->axis_x,L1->axis_y,8);
+                }
+                else if(L1->direct == 's') 
+                {
+                    Draw_pic(black,L1->axis_x-2,L1->axis_y,8);
+                    Draw_pic(bullets,L1->axis_x,L1->axis_y,8);
+                }
+                else if(L1->direct == 'd')
+                {
+                    Draw_pic(black,L1->axis_x,L1->axis_y+2,8);
+                    Draw_pic(bulletd,L1->axis_x,L1->axis_y,8);
+                }
             }
         }
     }

@@ -300,6 +300,18 @@ const uint16_t bird_blue[]={
                     0x0000, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
                     0x0000, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0xc67b, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000
 };
+const uint16_t red[]={
+                    0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,
+                    0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,
+                    0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,
+                    0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,
+                    0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,
+                    0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,
+                    0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,
+                    0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,
+                    0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,
+                    0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800,0xf800
+};
 const char bgm[]={
 0x00,0x05,
 0x16,0x05,
@@ -700,13 +712,132 @@ const char bgm[]={
 
 const char crash[]={0x13,0x05,0x11,0x05};
 
+void GAME_OVER()
+{
+    uint16_t i;
+    uint16_t j;
+    for(i=0;i<=11;i++)
+    {
+        for(j=0;j<=15;j++)
+        {
+            Draw_pic(black,i*20,j*20,20);
+        }
+    }
+    //E
+    Draw_pic(red,40,70,10);
+    Draw_pic(red,40,80,10);
+    Draw_pic(red,40,90,10);
+    Draw_pic(red,40,100,10);
+    Draw_pic(red,60,70,10);
+    Draw_pic(red,60,80,10);
+    Draw_pic(red,60,90,10);
+    Draw_pic(red,60,100,10);
+    Draw_pic(red,80,70,10);
+    Draw_pic(red,80,80,10);
+    Draw_pic(red,80,90,10);
+    Draw_pic(red,80,100,10);
+    Draw_pic(red,50,100,10);
+    Draw_pic(red,70,100,10);
+    //M
+    Draw_pic(red,50,130,10);
+    Draw_pic(red,60,130,10);
+    Draw_pic(red,70,130,10);
+    Draw_pic(red,80,130,10);
+    Draw_pic(red,50,150,10);
+    Draw_pic(red,60,150,10);
+    Draw_pic(red,70,150,10);
+    Draw_pic(red,50,170,10);
+    Draw_pic(red,60,170,10);
+    Draw_pic(red,70,170,10);
+    Draw_pic(red,80,170,10);
+    Draw_pic(red,40,140,10);
+    Draw_pic(red,40,160,10);
+    //A
+    Draw_pic(red,50,200,10);
+    Draw_pic(red,60,200,10);
+    Draw_pic(red,70,200,10);
+    Draw_pic(red,80,200,10);
+    Draw_pic(red,50,230,10);
+    Draw_pic(red,60,230,10);
+    Draw_pic(red,70,230,10);
+    Draw_pic(red,80,230,10);
+    Draw_pic(red,40,210,10);
+    Draw_pic(red,40,220,10);
+    Draw_pic(red,70,210,10);
+    Draw_pic(red,70,220,10);
+    //G
+    Draw_pic(red,40,260,10);
+    Draw_pic(red,40,270,10);
+    Draw_pic(red,40,280,10);
+    Draw_pic(red,50,290,10);
+    Draw_pic(red,60,290,10);
+    Draw_pic(red,70,290,10);
+    Draw_pic(red,80,260,10);
+    Draw_pic(red,80,270,10);
+    Draw_pic(red,80,280,10);
+    Draw_pic(red,60,260,10);
+    Draw_pic(red,70,260,10);
+    Draw_pic(red,60,270,10);
+    //R
+    Draw_pic(red,130,80,10);
+    Draw_pic(red,130,90,10);
+    Draw_pic(red,130,100,10);
+    Draw_pic(red,160,80,10);
+    Draw_pic(red,160,90,10);
+    Draw_pic(red,160,100,10);
+    Draw_pic(red,140,70,10);
+    Draw_pic(red,150,70,10);
+    Draw_pic(red,140,100,10);
+    Draw_pic(red,150,100,10);
+    Draw_pic(red,170,70,10);
+    Draw_pic(red,170,100,10);
+    //E2
+    Draw_pic(red,40+90,70+60,10);
+    Draw_pic(red,40+90,80+60,10);
+    Draw_pic(red,40+90,90+60,10);
+    Draw_pic(red,40+90,100+60,10);
+    Draw_pic(red,60+90,70+60,10);
+    Draw_pic(red,60+90,80+60,10);
+    Draw_pic(red,60+90,90+60,10);
+    Draw_pic(red,60+90,100+60,10);
+    Draw_pic(red,80+90,70+60,10);
+    Draw_pic(red,80+90,80+60,10);
+    Draw_pic(red,80+90,90+60,10);
+    Draw_pic(red,80+90,100+60,10);
+    Draw_pic(red,50+90,100+60,10);
+    Draw_pic(red,70+90,100+60,10);
+    //V
+    Draw_pic(red,130,190,10);
+    Draw_pic(red,140,190,10);
+    Draw_pic(red,150,190,10);
+    Draw_pic(red,130,230,10);
+    Draw_pic(red,140,230,10);
+    Draw_pic(red,150,230,10);
+    Draw_pic(red,160,200,10);
+    Draw_pic(red,170,210,10);
+    Draw_pic(red,160,220,10);
+    
+    //O 
+    Draw_pic(red,140,250+10,10);
+    Draw_pic(red,150,250+10,10);
+    Draw_pic(red,160,250+10,10);
+    Draw_pic(red,140,280+10,10);
+    Draw_pic(red,150,280+10,10);
+    Draw_pic(red,160,280+10,10);
+    Draw_pic(red,130,260+10,10);
+    Draw_pic(red,130,270+10,10);
+    Draw_pic(red,170,260+10,10);
+    Draw_pic(red,170,270+10,10);
+
+    while(1) ;
+}
 
 int main()
 {
 	Delay(6000000);
 	LCD_init();
 	Delay(1000000);
-    PlayBGM(bgm,1);
+    //PlayBGM(bgm,1);
     typedef struct object
 	{
     uint16_t axis_x;       
@@ -981,7 +1112,7 @@ int main()
     T->axis_x = 20;
     T->axis_y = 300-16;
     T->attr = '5';
-    T->direct = 's';
+    T->direct = 'd';
     T = T + sizeof(struct object);
 
     //initial bird
@@ -993,7 +1124,7 @@ int main()
     //PLAY
     while(1){
         
-	    Delay(1000);
+	    Delay(6000);
         //自机射击计时
         if(shoot_count < 30) 
         {
@@ -1012,7 +1143,7 @@ int main()
         if((ai_remake == 200) && (ai_remake_choose == 0))
         {
             ai_remake_choose = 1;
-            for ( j = 0; j < 150; j++)
+            for ( j = 0; j < 100; j++)
             {
                 T = H + j*sizeof(struct object);
                 if(T->attr == '0')
@@ -1029,7 +1160,7 @@ int main()
         else if((ai_remake == 200) && (ai_remake_choose == 1))
         {
             ai_remake_choose = 0;
-            for ( j = 0; j < 150; j++)
+            for ( j = 0; j < 100; j++)
             {
                 T = H + j*sizeof(struct object);
                 if(T->attr == '0')
@@ -1058,7 +1189,7 @@ int main()
 	    }
         fire = (din >> 15) & 1;
         //自机操作
-        for(i=0;i<150;i++)
+        for(i=0;i<100;i++)
         {
             L1 = H + i*sizeof(struct object);
             //自机移动
@@ -1094,7 +1225,7 @@ int main()
                 {
                     
                     shoot_count = 0;
-                    for ( j = 0; j < 150; j++)
+                    for ( j = 0; j < 100; j++)
                     {
                         T = H + j*sizeof(struct object);
                         if(T->attr == '0')
@@ -1155,7 +1286,7 @@ int main()
             else if(L1->attr == '5')
             {
                 //敌机开火
-                for(j=0;j<150;j++)
+                for(j=0;j<100;j++)
                 {   
                     L2 = H + j*sizeof(struct object);
                     if(L2->attr == '4' || L2->attr == '9' || L2->attr == '8')
@@ -1165,7 +1296,7 @@ int main()
                             if((L1->direct == 'd') && (L1->axis_x - L2->axis_x < 16) && (L2->axis_x - L1->axis_x < 16)) 
                             {
                                 ai_shoot_count = 0;
-                                for ( j = 0; j < 150; j++)
+                                for ( j = 0; j < 100; j++)
                                 {
                                     T = H + j*sizeof(struct object);
                                     if(T->attr == '0')
@@ -1181,7 +1312,7 @@ int main()
                             else if((L1->direct == 's') &&(L1->axis_y - L2->axis_y < 16) && (L2->axis_y - L1->axis_y < 16)) 
                             {
                                 ai_shoot_count = 0;
-                                for ( j = 0; j < 150; j++)
+                                for ( j = 0; j < 100; j++)
                                 {
                                     T = H + j*sizeof(struct object);
                                     if(T->attr == '0')
@@ -1197,7 +1328,7 @@ int main()
                             else if((L1->direct == 'a') && (L1->axis_x - L2->axis_x < 16) && (L2->axis_x - L1->axis_x < 16)) 
                             {
                                 ai_shoot_count = 0;
-                                for ( j = 0; j < 150; j++)
+                                for ( j = 0; j < 100; j++)
                                 {
                                     T = H + j*sizeof(struct object);
                                     if(T->attr == '0')
@@ -1213,7 +1344,7 @@ int main()
                             else if((L1->direct == 'w') && (L1->axis_y - L2->axis_y < 16) && (L2->axis_y - L1->axis_y < 16)) 
                             {
                                 ai_shoot_count = 0;
-                                for ( j = 0; j < 150; j++)
+                                for ( j = 0; j < 100; j++)
                                 {
                                     T = H + j*sizeof(struct object);
                                     if(T->attr == '0')
@@ -1275,10 +1406,10 @@ int main()
         
         
         //碰撞判断
-        for(i=0;i<150;i++)
+        for(i=0;i<100;i++)
         {
             L1 = H + i*sizeof(struct object);
-            for(j=0;j<150;j++)
+            for(j=0;j<100;j++)
             {
                 L2 = H + j*sizeof(struct object);
 
@@ -1425,6 +1556,7 @@ int main()
                             Draw_pic(black,L1->axis_x,L1->axis_y+2,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            GAME_OVER();
                             break;
                         }
                         else if((L1->direct == 's') && (L2->axis_x - L1->axis_x < 8) && (L2->axis_x - L1->axis_x > 0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 8)) 
@@ -1435,6 +1567,7 @@ int main()
                             Draw_pic(black,L1->axis_x-2,L1->axis_y,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            GAME_OVER();
                             break;
                         }
                         else if((L1->direct == 'a') && (L2->axis_y - L1->axis_y < 8) && (L2->axis_y - L1->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 8)) 
@@ -1445,6 +1578,7 @@ int main()
                             Draw_pic(black,L1->axis_x,L1->axis_y-2,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            GAME_OVER();
                             break;
                         }
                         else if((L1->direct == 'w') && (L1->axis_x - L2->axis_x < 20) && (L1->axis_x - L2->axis_x >0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 8)) 
@@ -1455,6 +1589,7 @@ int main()
                             Draw_pic(black,L1->axis_x+2,L1->axis_y,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            GAME_OVER();
                             break;
                         }
                     }
@@ -1550,6 +1685,7 @@ int main()
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
                             break;
                         }
+                        
                     }
 
                     //击中自机
@@ -1563,6 +1699,7 @@ int main()
                             Draw_pic(black,L1->axis_x,L1->axis_y+2,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            GAME_OVER();
                             break;
                         }
                         else if((L1->direct == 's') && (L2->axis_x - L1->axis_x < 8) && (L2->axis_x - L1->axis_x > 0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 8)) 
@@ -1573,6 +1710,7 @@ int main()
                             Draw_pic(black,L1->axis_x-2,L1->axis_y,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            GAME_OVER();
                             break;
                         }
                         else if((L1->direct == 'a') && (L2->axis_y - L1->axis_y < 8) && (L2->axis_y - L1->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 8)) 
@@ -1583,6 +1721,7 @@ int main()
                             Draw_pic(black,L1->axis_x,L1->axis_y-2,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            GAME_OVER();
                             break;
                         }
                         else if((L1->direct == 'w') && (L1->axis_x - L2->axis_x < 20) && (L1->axis_x - L2->axis_x >0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 8)) 
@@ -1593,6 +1732,7 @@ int main()
                             Draw_pic(black,L1->axis_x+2,L1->axis_y,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            GAME_OVER();
                             break;
                         }
                     }
@@ -1602,7 +1742,7 @@ int main()
        
         //draw
     
-        for(i=0;i<150;i++)
+        for(i=0;i<100;i++)
         {
             L1 = H + i*sizeof(struct object);
             if (L1->attr =='1')

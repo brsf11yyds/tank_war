@@ -1,7 +1,8 @@
 #include"code_def.h"
 #include"Buzzer.h"
 #include"LCD.h"
-
+#include"Timer.h"
+uint32_t timer_flag;
 const uint16_t black[]={
                     0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
 					0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
@@ -716,6 +717,7 @@ void GAME_OVER()
 {
     uint16_t i;
     uint16_t j;
+    
     for(i=0;i<=11;i++)
     {
         for(j=0;j<=15;j++)
@@ -837,6 +839,7 @@ int main()
 	Delay(6000000);
 	LCD_init();
 	Delay(1000000);
+    NVIC_CTRL_ADDR = 0x3;
     //PlayBGM(bgm,1);
     typedef struct object
 	{
@@ -848,20 +851,23 @@ int main()
     struct object *T,*H,*L1,*L2,*L1B,*L2B; //H头指针
     uint32_t i;
     uint32_t j;
+    uint16_t k;
     uint32_t din;
     uint32_t ans;
     uint16_t move_flag;
-    uint16_t shoot_count;
-    uint16_t ai_shoot_count;
+    uint16_t shoot_count = 0;
+    uint16_t bullet = 0;
+    uint16_t ai_shoot_count = 0;
     uint16_t bullet_move_flag;
     uint16_t ai_remake_choose = 1;
     uint16_t ai_remake;
     uint16_t fire;
 
 
+
     H = (struct object*)malloc(150*sizeof(struct object));
     //initial object
-    for(i=0;i<150;i++)
+    for(i=0;i<100;i++)
     {
         T = H + i*sizeof(struct object);
         T->axis_x = 0;
@@ -1124,7 +1130,8 @@ int main()
     //PLAY
     while(1){
         
-	    Delay(6000);
+	    while(!timer_flag) ;
+        timer_flag = 0;
         //自机射击计时
         if(shoot_count < 30) 
         {
@@ -1189,9 +1196,17 @@ int main()
 	    }
         fire = (din >> 15) & 1;
         //自机操作
-        for(i=0;i<100;i++)
+        for(i = 0;i < 100; i++)
         {
             L1 = H + i*sizeof(struct object);
+            
+            if(L1->axis_x > 240 || L1->axis_y > 320 )
+            {
+                L1->axis_x = 0;
+                L1->axis_y = 0;
+                L1->attr = '0';
+            }
+            
             //自机移动
             if(L1->attr =='4')
             { 
@@ -1223,7 +1238,6 @@ int main()
                 //自机发射子弹
                 if((fire == 1) && (shoot_count > 25))
                 {
-                    
                     shoot_count = 0;
                     for ( j = 0; j < 100; j++)
                     {
@@ -1254,7 +1268,7 @@ int main()
                             }
                             break;
                         }
-                    }
+                    }   
                 }   
             }
             //让子弹飞
@@ -1286,9 +1300,9 @@ int main()
             else if(L1->attr == '5')
             {
                 //敌机开火
-                for(j=0;j<100;j++)
+                for(k=0;k<100;k++)
                 {   
-                    L2 = H + j*sizeof(struct object);
+                    L2 = H + k*sizeof(struct object);
                     if(L2->attr == '4' || L2->attr == '9' || L2->attr == '8')
                     {
                         if(ai_shoot_count > 120)
@@ -1556,6 +1570,14 @@ int main()
                             Draw_pic(black,L1->axis_x,L1->axis_y+2,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            for(i=0;i<100;i++)
+                            {
+                                T = H + i*sizeof(struct object);
+                                T->axis_x = 0;
+                                T->axis_y = 0;
+                                T->attr = '0';
+                                T->direct = 'w';
+                            }
                             GAME_OVER();
                             break;
                         }
@@ -1567,6 +1589,14 @@ int main()
                             Draw_pic(black,L1->axis_x-2,L1->axis_y,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            for(i=0;i<100;i++)
+                            {
+                                T = H + i*sizeof(struct object);
+                                T->axis_x = 0;
+                                T->axis_y = 0;
+                                T->attr = '0';
+                                T->direct = 'w';
+                            }
                             GAME_OVER();
                             break;
                         }
@@ -1578,6 +1608,14 @@ int main()
                             Draw_pic(black,L1->axis_x,L1->axis_y-2,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            for(i=0;i<100;i++)
+                            {
+                                T = H + i*sizeof(struct object);
+                                T->axis_x = 0;
+                                T->axis_y = 0;
+                                T->attr = '0';
+                                T->direct = 'w';
+                            }
                             GAME_OVER();
                             break;
                         }
@@ -1589,6 +1627,14 @@ int main()
                             Draw_pic(black,L1->axis_x+2,L1->axis_y,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            for(i=0;i<100;i++)
+                            {
+                                T = H + i*sizeof(struct object);
+                                T->axis_x = 0;
+                                T->axis_y = 0;
+                                T->attr = '0';
+                                T->direct = 'w';
+                            }
                             GAME_OVER();
                             break;
                         }
@@ -1699,6 +1745,14 @@ int main()
                             Draw_pic(black,L1->axis_x,L1->axis_y+2,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            for(i=0;i<100;i++)
+                            {
+                                T = H + i*sizeof(struct object);
+                                T->axis_x = 0;
+                                T->axis_y = 0;
+                                T->attr = '0';
+                                T->direct = 'w';
+                            }
                             GAME_OVER();
                             break;
                         }
@@ -1710,6 +1764,14 @@ int main()
                             Draw_pic(black,L1->axis_x-2,L1->axis_y,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            for(i=0;i<100;i++)
+                            {
+                                T = H + i*sizeof(struct object);
+                                T->axis_x = 0;
+                                T->axis_y = 0;
+                                T->attr = '0';
+                                T->direct = 'w';
+                            }
                             GAME_OVER();
                             break;
                         }
@@ -1721,6 +1783,14 @@ int main()
                             Draw_pic(black,L1->axis_x,L1->axis_y-2,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            for(i=0;i<100;i++)
+                            {
+                                T = H + i*sizeof(struct object);
+                                T->axis_x = 0;
+                                T->axis_y = 0;
+                                T->attr = '0';
+                                T->direct = 'w';
+                            }
                             GAME_OVER();
                             break;
                         }
@@ -1732,6 +1802,14 @@ int main()
                             Draw_pic(black,L1->axis_x+2,L1->axis_y,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            for(i=0;i<100;i++)
+                            {
+                                T = H + i*sizeof(struct object);
+                                T->axis_x = 0;
+                                T->axis_y = 0;
+                                T->attr = '0';
+                                T->direct = 'w';
+                            }
                             GAME_OVER();
                             break;
                         }
@@ -1804,7 +1882,10 @@ int main()
     
 }
 
-
+void Timer_IRQ()
+{
+    timer_flag = 1;
+}
 
 void KEY()
 {

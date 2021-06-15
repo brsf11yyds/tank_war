@@ -2,8 +2,31 @@
 #include"Buzzer.h"
 #include"LCD.h"
 #include"Timer.h"
+#include"UART.h"
 
 uint32_t timer_flag;
+char uart_w;
+char uart_s;
+char uart_a;
+char uart_d;
+char uart_f;
+const uint16_t star[]={
+            0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0xa126, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+            0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0xa126, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+            0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0xa126, 0xa126, 0xa126, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+            0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0xa126, 0xa126, 0xa126, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+            0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 
+            0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 
+            0x0000, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0x0000, 
+            0x0000, 0x0000, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0x0000, 0x0000, 
+            0x0000, 0x0000, 0x0000, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0x0000, 0x0000, 0x0000, 
+            0x0000, 0x0000, 0x0000, 0x0000, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0x0000, 0x0000, 0x0000, 0x0000, 
+            0x0000, 0x0000, 0x0000, 0x0000, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0x0000, 0x0000, 0x0000, 0x0000, 
+            0x0000, 0x0000, 0x0000, 0x0000, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0xa126, 0x0000, 0x0000, 0x0000, 0x0000, 
+            0x0000, 0x0000, 0x0000, 0xa126, 0xa126, 0xa126, 0xa126, 0x0000, 0xa126, 0xa126, 0xa126, 0xa126, 0x0000, 0x0000, 0x0000, 
+            0x0000, 0x0000, 0x0000, 0xa126, 0xa126, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0xa126, 0xa126, 0x0000, 0x0000, 0x0000, 
+            0x0000, 0x0000, 0xa126, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0xa126, 0x0000, 0x0000, 
+};
 const uint16_t black[]={
                     0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
 					0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
@@ -329,6 +352,7 @@ const uint16_t GREY_5[]={
                     0x8410,0x8410,0x8410,0x8410,0x8410,
                     0x8410,0x8410,0x8410,0x8410,0x8410
 };
+
 const char bgm[]={
 0x00,0x05,
 0x16,0x05,
@@ -726,7 +750,7 @@ const char bgm[]={
 0x25,0x04,
 0x23,0x00,
 0x00,0x00};
-const char crash[]={0x13,0x05,0x11,0x05};
+const char crash[]={0x13,0x05,0x11,0x05,0x00,0x00};
 void GAME_START()
 {
     
@@ -1019,7 +1043,8 @@ void GAME_START()
      Draw_pic(GREY_5,195+30,45 +30,5);
      Draw_pic(GREY_5,200+30,55 +30,5);
      Draw_pic(GREY_5,200+30,40 +30,5);
-    
+     
+
 
 }
 void GAME_OVER()
@@ -1146,42 +1171,43 @@ void GAME_OVER()
 
 int main()
 {
+    
     typedef struct object
 	{
     uint16_t axis_x;       
     uint16_t axis_y;       
-    char attr;                             //属性：1：墙  2：木箱  3：草  4：己方坦克01 5：敌方坦克02 6：子弹 7:敌方坦克03 8己方基地red 9己方基地blue
-    char direct;           
+    char attr;                             //属性：1：墙  2：木箱  3：联机坦克  4：己方坦克01 5：敌方坦克02 6：子弹 7:敌方坦克03 8己方基地red 9己方基地blue 
+    char direct;         
 	}; 
     struct object *T,*H,*L1,*L2; //H头指针
-
+    NVIC_CTRL_ADDR = 0x0;
 	Delay(6000000);
 	LCD_init();
 	Delay(1000000);
-    NVIC_CTRL_ADDR = 0x3;
-    const uint16_t number = 130;
+    UART_Init();
+    NVIC_CTRL_ADDR = 0x7;
+    const uint16_t number = 100;
     //PlayBGM(bgm,1);
-    H = (struct object*)malloc(150*sizeof(struct object));
+    H = (struct object*)malloc(120*sizeof(struct object));
     uint32_t i;
     uint32_t j;
     uint16_t k;
     uint32_t din;
     uint32_t ans;
     uint16_t move_flag;
+    uint16_t move_flag_2;
     uint16_t shoot_count = 0;
+    uint16_t shoot_count_2 = 0;
     uint16_t bullet = 0;
     uint16_t ai_shoot_count = 0;
     uint16_t bullet_move_flag;
     uint16_t ai_remake_choose = 1;
-    uint16_t ai_remake;
     uint16_t fire=0;
     uint16_t game_mode = 0;
-
-
-
+    uint16_t game_mode_zhucong = 0;
     
     //initial object
-    for(i=0;i<number;i++)
+    for(i=0;i<number+20;i++)
     {
         T = H + i*sizeof(struct object);
         T->axis_x = 0;
@@ -1200,6 +1226,7 @@ int main()
     }
 
     //choose mode
+    game_mode = 0;
     GAME_START();
     din = KeyboardReg;
     fire = (din >> 15) & 1;
@@ -1208,8 +1235,77 @@ int main()
         while(!timer_flag) ;
         timer_flag = 0;
         din = KeyboardReg;
+        
+        if (game_mode == 0)
+        {
+            Draw_pic(star,190,50,15);
+            Draw_pic(black,220,50,20);
+            if((din >> 5) & 1) game_mode = 1;
+        }
+        else if(game_mode == 1)
+        {
+            Draw_pic(star,220,50,15);
+            Draw_pic(black,190,50,20);
+            if((din >> 6) & 1) game_mode = 0;
+        }
+        
         fire = (din >> 15) & 1;
     }
+    //选择主从 0主 1从
+    game_mode_zhucong = 0;
+    fire = 0;
+    Delay(500000);
+    if(game_mode == 1)
+    {
+        for(i=0;i<=11;i++)
+        {
+            for(j=0;j<=15;j++)
+            {
+                Draw_pic(black,i*20,j*20,20);
+            }
+        }
+        while (!fire)
+        {
+            while(!timer_flag) ;
+            timer_flag = 0;
+            din = KeyboardReg;
+            Draw_pic(GREY_5,180,200+30,5);
+            Draw_pic(GREY_5,185,200+30,5);
+            Draw_pic(GREY_5,190,200+30,5);
+            Draw_pic(GREY_5,195,200+30,5);
+            Draw_pic(GREY_5,200,200+30,5);
+            Draw_pic(GREY_5,180+30,200+30,5);
+            Draw_pic(GREY_5,180+30,200+30+5,5);
+            Draw_pic(GREY_5,180+30,200+30+10,5);
+            Draw_pic(GREY_5,185+30,200+30,5);
+            Draw_pic(GREY_5,190+30,200+30,5);
+            Draw_pic(GREY_5,190+30,200+30+5,5);
+            Draw_pic(GREY_5,190+30,200+30+10,5);
+            Draw_pic(GREY_5,195+30,200+30+10,5);
+            Draw_pic(GREY_5,200+30,200+30+10,5);
+            Draw_pic(GREY_5,200+30,200+30+10-5,5);
+            Draw_pic(GREY_5,200+30,200+30+10-10,5);
+            if (game_mode_zhucong == 0)
+            {
+                Draw_pic(star,190,50,15);
+                Draw_pic(black,220,50,20);
+                if((din >> 5) & 1) game_mode_zhucong = 1;
+            }
+            else if(game_mode_zhucong == 1)
+            {
+                Draw_pic(star,220,50,15);
+                Draw_pic(black,190,50,20);
+                if((din >> 6) & 1) game_mode_zhucong = 0;
+            }
+            fire = (din >> 15) & 1;
+        }
+        if(game_mode_zhucong == 0){
+            
+        }
+    }
+
+    
+
     T = H;
     //initial map
     for(i=0;i<=11;i++)
@@ -1257,7 +1353,7 @@ int main()
         T->direct = 'w';
         T = T + sizeof(struct object);
     }
-    {
+{
     //initial wall
     T->axis_x = 120;
     T->axis_y = 80;
@@ -1454,72 +1550,53 @@ int main()
     T->attr = '4';
     T->direct = 'w';
     T = T + sizeof(struct object);
+    if(game_mode == 0)
+    {
+        //initial ai tank
+        T->axis_x = 20;
+        T->axis_y = 300-16;
+        T->attr = '5';
+        T->direct = 'd';
+        T = T + sizeof(struct object);
 
-    //initial ai tank
-    T->axis_x = 20;
-    T->axis_y = 300-16;
-    T->attr = '5';
-    T->direct = 'd';
-    T = T + sizeof(struct object);
-
-    //initial bird
-    T->axis_x = 200;
-    T->axis_y = 180;
-    T->attr = '8';
-    T->direct = 'w';
+    
+        //initial bird
+        T->axis_x = 200;
+        T->axis_y = 180;
+        T->attr = '8';
+        T->direct = 'w';
     }
+    else if(game_mode == 1)
+    {
+        T->axis_x = 20;
+        T->axis_y = 80;
+        T->attr = '3';
+        T->direct = 'd';
+        T = T + sizeof(struct object);
+    }
+
+}
     //PLAY
     while(1){
-        
 	    while(!timer_flag) ;
+        move_flag_2 = uart_a | uart_d | uart_s | uart_w;
         timer_flag = 0;
         //自机射击计时
         if(shoot_count < 30) 
         {
             shoot_count += 1;   
         }
+        //自机2射击计时
+        if(shoot_count_2 < 30) 
+        {
+            shoot_count_2 += 1;   
+        }
         //敌机射击计时
         if(ai_shoot_count < 130)
         {
             ai_shoot_count += 1;
         }
-        //敌机重生计时
-        if(ai_remake > 0) 
-        {
-            ai_remake += -1;    
-        }
-        if((ai_remake == 200) && (ai_remake_choose == 0))
-        {
-            ai_remake_choose = 1;
-            for ( j = 0; j < number; j++)
-            {
-                T = H + j*sizeof(struct object);
-                if(T->attr == '0')
-                {
-                    T->axis_x = 20;
-                    T->axis_y = 300-16;
-                    T->attr = '5';
-                    T->direct = 's';
-                    break;
-                }
-            }
-        }
-        else if((ai_remake == 200) && (ai_remake_choose == 1))
-        {
-            ai_remake_choose = 0;
-            for ( j = 0; j < number; j++)
-            {
-                T = H + j*sizeof(struct object);
-                if(T->attr == '0')
-                {
-                    T->axis_x = 20;
-                    T->axis_y = 80;
-                    T->attr = '5';
-                    T->direct = 's';
-                    break;
-                }
-            }
-        }
+        
         
 	    din = KeyboardReg;
         ans = 0;
@@ -1544,9 +1621,78 @@ int main()
                 L1->axis_x = 0;
                 L1->axis_y = 0;
                 L1->attr = '0';
+                continue;
             }
             
-            
+            //自机_2移动
+            if(L1->attr =='3')
+            { 
+                if(uart_d) 
+                {
+                    uart_d = 0;
+                    L1->axis_y += -1;
+                    L1->direct = 'd';
+                    move_flag = 1; 
+                }
+                else if(uart_s) 
+                {
+                    uart_s = 0;
+                    L1->axis_x += 1;
+                    L1->direct = 's';
+                    move_flag = 1;
+                }
+                else if(uart_a) 
+                {
+                    uart_a = 0;
+                    L1->axis_y += 1;
+                    L1->direct = 'a';
+                    move_flag = 1;
+                }
+                else if(uart_w) 
+                {
+                    uart_w = 0;
+                    L1->axis_x += -1;
+                    L1->direct = 'w';
+                    move_flag = 1;
+                }
+                
+                //自机发射子弹
+                if((uart_f) && (shoot_count_2 > 25))
+                {
+                    shoot_count_2 = 0;
+                    uart_f = 0;
+                    for ( j = 0; j < number; j++)
+                    {
+                        T = H + j*sizeof(struct object);
+                        if(T->attr == '0')
+                        {
+                            T->attr = '6';
+                            T->direct = L1->direct;
+                            if(T->direct == 'd')
+                            {
+                                T->axis_x = L1->axis_x + 4;
+                                T->axis_y = L1->axis_y - 7;
+                            }
+                            else if(T->direct == 's')
+                            {
+                                T->axis_x = L1->axis_x + 15;
+                                T->axis_y = L1->axis_y + 4;
+                            }
+                            else if(T->direct == 'a')
+                            {
+                                T->axis_x = L1->axis_x + 4;
+                                T->axis_y = L1->axis_y + 15;
+                            }
+                            else if(T->direct == 'w')
+                            {
+                                T->axis_x = L1->axis_x - 7;
+                                T->axis_y = L1->axis_y + 4; 
+                            }
+                            break;
+                        }
+                    }   
+                }   
+            }
             //自机移动
             if(L1->attr =='4')
             { 
@@ -1715,6 +1861,7 @@ int main()
                     }
                 }
                 //敌机移动left
+                
                 if((L1->axis_y == 300-16) && (L1->axis_x < 120-16) && (ai_shoot_count > 30))
                 {
                     L1->axis_x += 1;
@@ -1770,7 +1917,7 @@ int main()
                 //自机碰撞
                 if(L1->attr == '4' && move_flag == 1)
                 {
-                    if(L2->attr == '1'|| L2->attr == '2' || L2->attr == '5')
+                    if(L2->attr == '1'|| L2->attr == '2' || L2->attr == '5' ||  L2->attr == '3')
                     {
                         if((L1->direct == 'd') && (L1->axis_y - L2->axis_y < 20) && (L1->axis_y - L2->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 16)) 
                         {
@@ -1791,6 +1938,34 @@ int main()
                         {
                             L1->axis_x += 1;
                             move_flag = 0;
+                        }
+                    }    
+                }
+                //自机2碰撞
+                //自机碰撞
+                if(L1->attr == '3' && move_flag == 1)
+                {
+                    if(L2->attr == '1'|| L2->attr == '2' || L2->attr == '5' ||  L2->attr == '4')
+                    {
+                        if((L1->direct == 'd') && (L1->axis_y - L2->axis_y < 20) && (L1->axis_y - L2->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 16)) 
+                        {
+                            L1->axis_y += 1;
+                            move_flag_2 = 0;
+                        }
+                        else if((L1->direct == 's') && (L2->axis_x - L1->axis_x < 16) && (L2->axis_x - L1->axis_x > 0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 16)) 
+                        {
+                            L1->axis_x += -1;
+                            move_flag_2 = 0;
+                        }
+                        else if((L1->direct == 'a') && (L2->axis_y - L1->axis_y < 16) && (L2->axis_y - L1->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 16)) 
+                        {
+                            L1->axis_y += -1;
+                            move_flag_2 = 0;
+                        }
+                        else if((L1->direct == 'w') && (L1->axis_x - L2->axis_x < 20) && (L1->axis_x - L2->axis_x >0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 16)) 
+                        {
+                            L1->axis_x += 1;
+                            move_flag_2 = 0;
                         }
                     }    
                 }
@@ -2002,44 +2177,85 @@ int main()
                         if((L1->direct == 'd') && (L1->axis_y - L2->axis_y < 20) && (L1->axis_y - L2->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 8)) 
                         {
                             L1->attr = '0';
-                            L2->attr = '0';
-                            ai_remake = 500;
+                           
+                            //ai_remake = 500;
                             PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x,L1->axis_y+2,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
+                            if (L2->axis_y > 200)
+                            {
+                                L2->axis_x = 20;
+                                L2->axis_y = 80;
+                            }
+                            else
+                            {
+                                L2->axis_x = 20;
+                                L2->axis_y = 300-16;
+                            }
+                        
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
                             break;
                         }
                         else if((L1->direct == 's') && (L2->axis_x - L1->axis_x < 8) && (L2->axis_x - L1->axis_x > 0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 8)) 
                         {
                             L1->attr = '0';
-                            L2->attr = '0';
-                            ai_remake = 500;
+                            
+                            //ai_remake = 500;
                             PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x-2,L1->axis_y,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
+                            if (L2->axis_y > 200)
+                            {
+                                L2->axis_x = 20;
+                                L2->axis_y = 80;
+                            }
+                            else
+                            {
+                                L2->axis_x = 20;
+                                L2->axis_y = 300-16;
+                            }
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
                             break;
                         }
                         else if((L1->direct == 'a') && (L2->axis_y - L1->axis_y < 8) && (L2->axis_y - L1->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 8)) 
                         {
                             L1->attr = '0';
-                            L2->attr = '0';
-                            ai_remake = 500;
+                            
+                            //ai_remake = 500;
                             PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x,L1->axis_y-2,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
+                            if (L2->axis_y > 200)
+                            {
+                                L2->axis_x = 20;
+                                L2->axis_y = 80;
+                            }
+                            else
+                            {
+                                L2->axis_x = 20;
+                                L2->axis_y = 300-16;
+                            }
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
                             break;
                         }
                         else if((L1->direct == 'w') && (L1->axis_x - L2->axis_x < 20) && (L1->axis_x - L2->axis_x >0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 8)) 
                         {
                             L1->attr = '0';
-                            L2->attr = '0';
-                            ai_remake = 500;
+                           
+                            //ai_remake = 500;
                             PlaySound(crash,0);
                             Draw_pic(black,L1->axis_x+2,L1->axis_y,8);
                             Draw_pic(black,L2->axis_x,L2->axis_y,20);
+                            if (L2->axis_y > 200)
+                            {
+                                L2->axis_x = 20;
+                                L2->axis_y = 80;
+                            }
+                            else
+                            {
+                                L2->axis_x = 20;
+                                L2->axis_y = 300-16;
+                            }
                             Draw_pic(black,L1->axis_x,L1->axis_y,8);
                             break;
                         }
@@ -2048,6 +2264,58 @@ int main()
 
                     //击中自机
                     if(L2->attr == '4')
+                    {
+                        if((L1->direct == 'd') && (L1->axis_y - L2->axis_y < 20) && (L1->axis_y - L2->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 8)) 
+                        {
+                            L1->attr = '0';
+                            L2->attr = '0';
+                            PlaySound(crash,0);
+                            Draw_pic(black,L1->axis_x,L1->axis_y+2,8);
+                            Draw_pic(black,L2->axis_x,L2->axis_y,20);
+                            Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            free(H);
+                            GAME_OVER();
+                            break;
+                        }
+                        else if((L1->direct == 's') && (L2->axis_x - L1->axis_x < 8) && (L2->axis_x - L1->axis_x > 0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 8)) 
+                        {
+                            L1->attr = '0';
+                            L2->attr = '0';
+                            PlaySound(crash,0);
+                            Draw_pic(black,L1->axis_x-2,L1->axis_y,8);
+                            Draw_pic(black,L2->axis_x,L2->axis_y,20);
+                            Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            free(H);
+                            GAME_OVER();
+                            break;
+                        }
+                        else if((L1->direct == 'a') && (L2->axis_y - L1->axis_y < 8) && (L2->axis_y - L1->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 8)) 
+                        {
+                            L1->attr = '0';
+                            L2->attr = '0';
+                            PlaySound(crash,0);
+                            Draw_pic(black,L1->axis_x,L1->axis_y-2,8);
+                            Draw_pic(black,L2->axis_x,L2->axis_y,20);
+                            Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            free(H);
+                            GAME_OVER();
+                            break;
+                        }
+                        else if((L1->direct == 'w') && (L1->axis_x - L2->axis_x < 20) && (L1->axis_x - L2->axis_x >0) && (L1->axis_y - L2->axis_y < 20) && (L2->axis_y - L1->axis_y < 8)) 
+                        {
+                            L1->attr = '0';
+                            L2->attr = '0';
+                            PlaySound(crash,0);
+                            Draw_pic(black,L1->axis_x+2,L1->axis_y,8);
+                            Draw_pic(black,L2->axis_x,L2->axis_y,20);
+                            Draw_pic(black,L1->axis_x,L1->axis_y,8);
+                            free(H);
+                            GAME_OVER();
+                            break;
+                        }
+                    }
+                    //击中自机_2
+                    if(L2->attr == '3')
                     {
                         if((L1->direct == 'd') && (L1->axis_y - L2->axis_y < 20) && (L1->axis_y - L2->axis_y > 0) && (L1->axis_x - L2->axis_x < 20) && (L2->axis_x - L1->axis_x < 8)) 
                         {
@@ -2130,7 +2398,7 @@ int main()
                 else if(L1->direct == 's') Draw_pic(tank01s,L1->axis_x,L1->axis_y,16);
                 else if(L1->direct == 'd') Draw_pic(tank01d,L1->axis_x,L1->axis_y,16);
             }
-            else if (L1->attr =='5')
+            else if (L1->attr =='5' || L1->attr == '3')
             {
                 if(L1->direct == 'w') Draw_pic(tank02w,L1->axis_x,L1->axis_y,16);
                 else if(L1->direct == 'a') Draw_pic(tank02a,L1->axis_x,L1->axis_y,16);
@@ -2174,4 +2442,15 @@ void Timer_IRQ()
 void KEY()
 {
 
+}
+
+void UARTRX_IRQ()
+{
+    UART->INTSTATUSnCLEAR = 2;
+    char ch = UART_getc();
+    if(ch == 'w') uart_w = 1;
+    else if(ch == 's') uart_s = 1;
+    else if(ch == 'a') uart_a = 1;
+    else if(ch == 'd') uart_d = 1;
+    else if(ch == 'f') uart_f = 1;
 }
